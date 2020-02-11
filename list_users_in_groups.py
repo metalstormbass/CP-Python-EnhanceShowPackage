@@ -21,20 +21,20 @@ def post (command, json_data, sid, ip):
         try:
             response = requests.post("https://"+ip+"/web_api/"+command, json=json_data, headers=headers, verify=False)
             response_json = json.loads(response.content)
-            #print response_json
+            #print (response_json)
             return response_json
         except:
-            print "Error Occured"
+            print ("Error Occured")
             sys.exit()
 
 #Gather Information            
-ip = raw_input("Management Server IP Address: ")
-user = raw_input("Username: ")
+ip = input("Management Server IP Address: ")
+user = input("Username: ")
 pw = getpass.getpass('Password:')
 
 #Login
 sid = login(ip,user,pw)
-#print sid
+#print (sid)
 
 
 #Open Text File

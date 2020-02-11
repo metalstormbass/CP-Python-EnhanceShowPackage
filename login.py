@@ -17,14 +17,14 @@ def login(ip,user,pw):
         }
     try:
         response = requests.post("https://"+ip+"/web_api/login", json=payload_list, headers=headers, verify=False)
-        #print response
+        #print (response)
         response_json = json.loads(response.content)
-        #print response_json
+        #print (response_json)
         sid = response_json['sid']
         return sid    
 
     except:
-        print "Unable to login. Ensure the API is enabled and check credentials"
+        print ("Unable to login. Ensure the API is enabled and check credentials")
         sys.exit()
 
 #Logout function 
